@@ -1,0 +1,38 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Descricao</th>
+      <th scope="col">Ano de Lançamento</th>
+      <th scope="col">Ano de Lançamento</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let filme of filmes">
+    <tr>
+      <th scope="row">{{ filme.id }}</th>
+      <td>{{ filme.titulo }}</td>
+      <td>{{ filme.genero }}</td>
+      <td>{{ filme.descricao }}</td>
+      <td>{{ filme.ano_Lancamento }}</td>
+      <td>
+        <i class="bi bi-pencil" (click)="selecionarFilme(filme)"></i
+        ><i class="bi bi-trash3" (click)="selecionarParaExcluir(filme)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="button" (click)="(formularioAdicao == true)">
+  Adicionar Filme
+</button>
+
+<div *ngIf="filmeSelecionadoExclusao.id != null">
+  <h3>deseja excluir esse filme</h3>
+  <button type="button" (click)="excluirFilme(filmeSelecionadoExclusao.id)">
+    Excluir
+  </button>
+  <button type="button" routerLink="/filmes">Não</button>
+</div>
